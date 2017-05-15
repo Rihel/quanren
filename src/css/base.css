@@ -1,0 +1,39 @@
+html {
+  font-size: 62.5%; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+  a:hover, a:active {
+    text-decoration: none;
+    color: #333; }
+
+* {
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box; }
+
+.btn {
+  border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 5px 8px;
+  border: none; }
+
+.header {
+  max-width: 100%;
+  text-align: center; }
+  .header img {
+    width: 50%; }
+
+.login-main h1 {
+  text-align: center; }
+
+.login-main .login-box {
+  width: 76%;
+  margin-left: auto;
+  margin-right: auto; }

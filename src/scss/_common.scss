@@ -1,0 +1,14 @@
+@import "./_mixin.scss";
+.btn {
+    @include radius(5px);
+    padding: 5px 8px;
+    border: none;
+}
+
+.header {
+    max-width: 100%;
+    text-align: center;
+    img {
+        width: 50%;
+    }
+}

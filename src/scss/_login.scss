@@ -1,0 +1,10 @@
+@import "./_mixin.scss";
+.login-main {
+    h1 {
+        text-align: center;
+    }
+    .login-box {
+        width: 76%;
+        @include blockCenter;
+    }
+}
