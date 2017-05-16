@@ -1,4 +1,4 @@
-require(['jQuery', 'step', 'model/api'], function ($, tem, control, step) {
+require(['jQuery', 'step', 'plupload'], function($, step, plupload) {
     var step = $("#myStep").step();
 
     // $("#preBtn").click(function (event) {
@@ -10,40 +10,40 @@ require(['jQuery', 'step', 'model/api'], function ($, tem, control, step) {
     // $("#goBtn").click(function (event) {
     //     var yes = step.goStep(3); //到指定步
     // });
-    var file = $('.file');
-    var upload = $('.upload');
-    var formData = new FormData();
-    formData.append('file', file);
-    function onprogress(evt){
-        console.log(evt.total,evt.loaded);
-    }
-    upload.click(function () {
-        $.ajax({　　　　
-            type: "POST",
-            　　　　url: "http://m.qren163.cn:8080/v1/api/auth/upload/token",
-            　　　　data: formData,
-            　　 //这里上传的数据使用了formData 对象
-            　　　　processData: false,
-            　　　　 //必须false才会自动加上正确的Content-Type
-            　　　　contentType: false,
-            　　　　　　　　 //这里我们先拿到jQuery产生的 XMLHttpRequest对象，为其增加 progress 事件绑定，然后再返回交给ajax使用
-            　　　　xhr: function () {　　　　　　
-                        var xhr = $.ajaxSettings.xhr();　　　　　　
-                        if (onprogress && xhr.upload) {　　　　　　　　
-                            xhr.upload.addEventListener("progress", onprogress, false);　　　　　　　　
-                            return xhr;　　　　　　
-                        }　　　　
-            }
-        }).done(data=>{
-            console.log(data);
-            $.ajax({
-                type:'POST',
-                url:data.data.formUrl+'/'+data.data.dir,
-                data:formData.name,
-                success:function(result){
-                    console.log(result);
+
+
+
+    var uploader = new plupload.Uploader({
+        browse_button: 'file', //触发文件选择对话框的按钮，为那个元素id
+        url: 'http://oss.aliyuncs.com', //服务器端的上传页面地址
+        filters: {
+            mime_types: [ //只允许上传图片文件
+                {
+                    title: "Image files",
+                    extensions: "*", //fxxk : android mobile might have file without extension
+                    //extensions : "jpg,png,bmp,jpeg",
                 }
-            })
+            ],
+            max_file_size: '8mb', //最大只能上传8mb的文件
+            prevent_duplicates: true //不允许选取重复文件
+        },
+    });
+
+
+    var tokenURL = 'http://m.qren163.cn:8080/v1/api/auth/upload/token';
+
+    function getInputFileName(fileinputDOM) {
+        var dtd = $.Deferred();
+        var postfix = fileinputDOM.files[0].name.postfix();
+        if (postfix == undefined || postfix == null) {
+            postfix = ".jpg";
+        }
+        var fileSuffix = postfix.toString().toLowerCase();
+        return customName + fileSuffix;
+    }
+    $.get(tokenURL)
+        .then(data => {
+            console.log(data);
         })
-    })
+
 })
