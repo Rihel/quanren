@@ -6,12 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.step.css">
     <link rel="stylesheet" href="css/base.css">
 </head>
 
 <body>
-    首页
+    <div class="step-body" id="myStep">
+        <div class="step-header" style="width:80%">
+            <ul>
+                <li>
+                    <p>填写申请表</p>
+                </li>
+                <li>
+                    <p>上传资料</p>
+                </li>
+                <li>
+                    <p>待确认</p>
+                </li>
+                <li>
+                    <p>已确认</p>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="step-content">
+            <div class="step-list">
+
+            </div>
+            <div class="step-list">
+
+            </div>
+            <div class="step-list">
+
+            </div>
+            <div class="step-list">
+
+            </div>
+        </div>
+
+    </div>
+    <input class="file" type="file">
+    <input type="button" class="upload">
+
+    <script src="js/require.js" data-main="js/index.js">
+    </script>
+    <script src="js/config.js"></script>
 </body>
 
 </html>
