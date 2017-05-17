@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "browser-sync start --server \"src\" --files \"src\""
+    "dev": "browser-sync start --server \"src\" --files \"src\"  --index \"client/index.html\""
   },
   "repository": {
     "type": "git",

@@ -37,6 +37,7 @@ require([
                 .then(function (data) {
                     if (data.success) {
                         until.setItem('username', name);
+                        until.setItem('mibble',name);
                         until.setItem('password', pwd);
                         until.jumpPage('index');
                     }

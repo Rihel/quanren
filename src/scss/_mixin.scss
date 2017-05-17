@@ -103,3 +103,7 @@ $keylist:-webkit-,
         @content;
     }
 }
+
+@function rem($num){
+    @return $num/12+rem;
+}
