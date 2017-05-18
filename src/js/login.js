@@ -4,10 +4,10 @@ require([
         'model/tem',
         'model/api',
         'model/until',
-       
+        'model/dialog'
     ],
-    function ($, tem, api, until) {
-
+    function ($, tem, api, until,dialog) {
+        console.log(dialog);
         var loginBox = $('.login-box');
         var username = loginBox.find('#username');
         var password = loginBox.find('#password');
@@ -32,7 +32,14 @@ require([
         $('.login-btn').on('click', function () {
             var name = username.val();
             var pwd = password.val();
-         
+            if(name===''||pwd===''){
+                dialog({
+                    title:'错误',
+                    content:'用户名或者密码不能为空',
+                    btns:['确定']
+                }).alert();
+                return;
+            }
             api.login(name, pwd)
                 .then(function (data) {
                     if (data.success) {
