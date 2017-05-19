@@ -18,16 +18,3 @@ requirejs.config({
     }
 });
 
-require(['jQuery'], function($) {
-    $.get('include/header.html')
-        .then(function(data) {
-            $('.main').before(data);
-            return $.get('include/footer-nav.html')
-        }).then(function(footer) {
-
-            if (window.location.href.indexOf('login') < 0) {
-                $('.main').after(footer);
-            }
-
-        })
-})

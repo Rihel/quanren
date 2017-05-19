@@ -30,8 +30,12 @@ define(function(require) {
                 return false;
             }
         },
-        jumpPage: function(name) {
-            window.location.href = name.concat('.html');
+        jumpPage: function(name,data) {
+           var href = name.concat('.html');
+           if(data){
+               href=href+'?'+$.param(data);
+           }
+           window.location.href=href;
         }
     }
 

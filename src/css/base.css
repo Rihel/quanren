@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   font-size: 62.5%; }
 
 a {
@@ -15,6 +16,35 @@ a {
   -webkit-box-sizing: border-box;
   -o-box-sizing: border-box;
   font-family: Helvetica, Tahoma, Arial, "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei"; }
+
+.title {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 6rem;
+  border-bottom: 1px solid #ddd; }
+  .title a {
+    position: absolute;
+    z-index: 11;
+    margin-left: 1rem;
+    font-size: 1.6rem; }
+  .title h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    line-height: 6rem; }
 
 .header {
   max-width: 100%;
@@ -47,6 +77,9 @@ a {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%); }
 
+.index-box {
+  margin-top: 1rem; }
+
 .login-main h1 {
   text-align: center; }
 
@@ -55,30 +88,3 @@ a {
   margin-left: auto;
   margin-right: auto; }
 
-.register-title {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 5rem;
-  border-bottom: 1px solid #ddd; }
-  .register-title a {
-    display: block;
-    margin-left: 0.83333rem;
-    font-size: 1.33333rem; }
-  .register-title h4 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    line-height: 5rem; }

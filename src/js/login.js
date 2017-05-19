@@ -6,7 +6,7 @@ require([
         'model/until',
         'model/dialog'
     ],
-    function ($, tem, api, until,dialog) {
+    function ($, tem, api, until, dialog) {
         console.log(dialog);
         var loginBox = $('.login-box');
         var username = loginBox.find('#username');
@@ -32,21 +32,38 @@ require([
         $('.login-btn').on('click', function () {
             var name = username.val();
             var pwd = password.val();
-            if(name===''||pwd===''){
+            if (name === '' || pwd === '') {
                 dialog({
-                    title:'错误',
-                    content:'用户名或者密码不能为空',
-                    btns:['确定']
+                    title: '错误',
+                    content: '用户名或者密码不能为空',
+                    btns: ['确定']
                 }).alert();
                 return;
             }
-            api.login(name, pwd)
-                .then(function (data) {
+            api.userStatus(name)
+            .then(function(state){
+               if(state.success){
+                   return api.login(name, pwd);
+               }else{
+
+               }
+            }).then(function (data) {
                     if (data.success) {
                         until.setItem('username', name);
-                        until.setItem('mibble',name);
+                        until.setItem('mibble', name);
                         until.setItem('password', pwd);
-                        until.jumpPage('index');
+                        until.jumpPage('index',{
+                            p:name
+                        });
+                    } else {
+                        switch (data.errorCode) {
+                            case 1:
+                                dialog({
+                                    title: '错误',
+                                    content: data.errorDetail.msg,                                 
+                                }).alert();
+                        };
+
                     }
                 })
 

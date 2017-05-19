@@ -1,4 +1,4 @@
-define(function(require) {
+define(function (require) {
     var $ = require('jQuery');
     var tpl = require('tmpl');
     var hostName = 'http://m.qren163.cn:8080/v1/api/';
@@ -25,23 +25,56 @@ define(function(require) {
     // var ClientStatus_WaitForPay = "9"; //一审通过,等待支付
     var api = {
 
-        userLogin: hostName + 'auth/login'
+        userLogin: hostName + 'auth/login',
+        orderPage: hostName + 'order/page',
+        userGet: hostName + 'user/get',
+        userStatus:hostName+'user/status'
     };
     //登录操作
 
     var control = {};
-    $(document).ajaxStart(function() {
+    $(document).ajaxStart(function () {
         console.log(111)
     })
-    control.login = function(username, passowrd) {
+    control.login = function (username, passowrd) {
         var dtd = $.Deferred();
         $.post(api.userLogin, {
             name: username,
             pwd: passowrd
-        }, function(data) {
+        }, function (data) {
             dtd.resolve(data);
         });
 
+        return dtd;
+    }
+    control.orderPage = function (arg) {
+        var dtd = $.Deferred();
+        $.get(api.orderPage, arg, function (data) {
+            dtd.resolve(data);
+        });
+        return dtd;
+    }
+    control.userGet = function () {
+        var dtd = $.Deferred();
+
+        $.ajax({
+            url: api.orderPage,
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+
+                dtd.resolve(data);
+
+            }
+        });
+        return dtd;
+    }
+    control.userStatus=function(mobile){
+        var dtd=$.Deferred();
+        $.get(api.userStatus,{mobile},function(data){
+            dtd.resolve(data);
+        })
         return dtd;
     }
     return control;

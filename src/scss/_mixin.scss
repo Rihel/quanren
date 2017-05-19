@@ -105,5 +105,5 @@ $keylist:-webkit-,
 }
 
 @function rem($num){
-    @return $num/12+rem;
+    @return $num/10+rem;
 }
