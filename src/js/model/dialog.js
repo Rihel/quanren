@@ -29,37 +29,21 @@ define(function (require) {
         })
         this.content = $('<div class="dialog-content modal-body">').html(this.setting.content);
         this.controls = $('<div class="dialog-controls modal-footer">');
-
+        this.start();
         return this;
     }
     dialog.prototype = {
         constructor: dialog,
-        alert: function () {
-            var self = this;
-            this.init();
-            // this.controls.append('<input type="button" value="确定">');
-            // this.controls.find('input').click(function () {
-            //     self.close();
-            // });
-            $('body').append(this.container);
 
-            this.start();
-            return this;
-        },
         start: function () {
             var self = this;
+			this.init();
+			$('body').append(this.container);
             this.mark.fadeIn(300, function () {
                 self.box.fadeIn();
             })
         },
-        confirm: function () {
-            var self = this;
 
-            this.init();
-
-            $('body').append(this.container);
-            this.start();
-        },
         init: function () {
             var self = this;
             this.container.append(this.mark).append(this.box);
@@ -71,10 +55,11 @@ define(function (require) {
                 });
             }
             var btns = this.controls.find('input');
-            btns.click(function(){
-                self.close();
-                self.setting.btnsCallback && self.setting.btnsCallback(btns, self);
-            })
+            btns.on('click',function(){
+				self.close();
+			})
+            self.setting.btnsCallback && self.setting.btnsCallback(btns, self);
+
             this.mark.click(function () {
                 self.close();
             })

@@ -1,4 +1,56 @@
 @import './_mixin.scss';
 .index-box{
     margin-top: rem(10);
+    .menu{
+        display: flex;
+        justify-content: space-around;
+        .menu-item{
+
+            width: 30%;
+            padding: rem(20);
+            font-size: rem(14);
+            background: #ffc8e4;
+            text-align: center;
+        }
+    }
+    .init{
+
+    }
+    .order{
+        .citys{
+            position: relative;
+            h4{
+                border: 1px solid #dddddd;
+                padding:rem(10) 0;
+                margin-bottom: 0;
+                position: relative;
+                text-align: center;
+                i{
+                    position: absolute;
+                    right: rem(10);
+                }
+            }
+            .city-list{
+                position: absolute;
+                display: none;
+                list-style:none;
+                padding: 0 rem(10);
+                width: 100%;
+                border: 1px solid #dddddd;
+                border-top: none;
+                background: #fff;
+
+                li{
+                    padding: rem(5);
+                    &+li{
+                        border-top:1px solid #ddd;
+                    }
+                    &:active{
+                        background: #ddd;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
 }

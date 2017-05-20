@@ -111,7 +111,7 @@ gulp.task('default', ['clean'], () => {
 })
 gulp.task('watch', () => {
 	gulp.watch(path.scss, ['css']);
-	gulp.watch(path.js, ['js']);
-	gulp.watch(path.img, ['img']);
-	gulp.watch(path.html, ['html']);
+	// gulp.watch(path.js, ['js']);
+	// gulp.watch(path.img, ['img']);
+	// gulp.watch(path.html, ['html']);
 })

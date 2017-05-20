@@ -52,6 +52,65 @@ a {
   .header img {
     width: 50%; }
 
+.nav-tab {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid #eee; }
+  .nav-tab li {
+    width: 33.333333333%;
+    text-align: center; }
+    .nav-tab li a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-size: 1.4rem; }
+    .nav-tab li.active a {
+      color: #3cb2ff; }
+
+.loading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 9999999;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem; }
+
 .dialog-container {
   position: fixed;
   z-index: 9999;
@@ -79,6 +138,47 @@ a {
 
 .index-box {
   margin-top: 1rem; }
+  .index-box .menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+    .index-box .menu .menu-item {
+      width: 30%;
+      padding: 2rem;
+      font-size: 1.4rem;
+      background: #ffc8e4;
+      text-align: center; }
+  .index-box .order .citys {
+    position: relative; }
+    .index-box .order .citys h4 {
+      border: 1px solid #dddddd;
+      padding: 1rem 0;
+      margin-bottom: 0;
+      position: relative;
+      text-align: center; }
+      .index-box .order .citys h4 i {
+        position: absolute;
+        right: 1rem; }
+    .index-box .order .citys .city-list {
+      position: absolute;
+      display: none;
+      list-style: none;
+      padding: 0 1rem;
+      width: 100%;
+      border: 1px solid #dddddd;
+      border-top: none;
+      background: #fff; }
+      .index-box .order .citys .city-list li {
+        padding: 0.5rem; }
+        .index-box .order .citys .city-list li + li {
+          border-top: 1px solid #ddd; }
+        .index-box .order .citys .city-list li:active {
+          background: #ddd;
+          color: #fff; }
 
 .login-main h1 {
   text-align: center; }

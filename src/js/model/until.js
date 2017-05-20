@@ -36,7 +36,14 @@ define(function(require) {
                href=href+'?'+$.param(data);
            }
            window.location.href=href;
-        }
+        },
+        loading:function(text){
+			var loading=$('<div class="loading">');
+			var roll=$('<div><i class="fa fa-spin fa-circle-o-notch"></div>');
+			var text=$('<div>'+text+'</div>')
+			loading.append(roll).append(text);
+			$('body').append(loading);
+		}
     }
 
     return new until();
