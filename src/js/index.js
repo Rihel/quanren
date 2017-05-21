@@ -8,28 +8,27 @@ require(['jQuery',
 
 	var init=$.Callbacks();
 	init.add(defineTitle);
-	// init.add(orderPage)
+	init.add(orderPage)
 	//检测登录状态
 	api.userGet()
 	   .then(function(data){
+	   		console.log(data);
 			if(!data.success){
 				dialog({
 					title:'错误',
 					content:'还未登录，返回登录页面',
 					btns:['确定'],
 					btnsCallback:function(){
-						until.jumpPage('login')
+						// until.jumpPage('login')
 					}
 				});
 			}else{
-
 				init.fire('首页');
 				api.province()
 					.then(function(data){
 						return api.city();
 					})
 					.then(function(city){
-
 						return tem('citys',{citys:city.data,first:city.data[0].title})
 					})
 					.then(function(data){

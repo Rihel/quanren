@@ -43,6 +43,10 @@ define(function(require) {
 			var text=$('<div>'+text+'</div>')
 			loading.append(roll).append(text);
 			$('body').append(loading);
+		},
+        closeLoading:function(){
+
+            $('body .loading').remove();
 		}
     }
 
