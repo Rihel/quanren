@@ -92,7 +92,6 @@ define(function(require){
 				}
 			}
 		},opt);
-		console.log(option)
 		$.ajax(option)
 	}
 
@@ -214,6 +213,33 @@ define(function(require){
 				dtd.resolve(data.data)
 			}else {
 				dtd.rbject(data);
+			}
+		});
+		return dtd;
+	}
+	control.carBrandList=function(){
+		var dtd = $.Deferred();
+		this.base({
+			url:api.carbrand,
+			success:function(data){
+				if(data.success){
+					dtd.resolve(dtaa.data);
+				}
+			}
+		});
+		return dtd;
+	}
+	control.getDraftBox=function(mobile){
+			var dtd = $.Deferred();
+		this.base({
+			url:api.getDraftBox,
+			data:{
+				mobile:mobile
+			},
+			success:function(data){
+				if(data.success){
+					dtd.resolve(data.data);
+				}
 			}
 		});
 		return dtd;

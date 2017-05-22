@@ -8,12 +8,12 @@
     <title>Document</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/jquery.step.css">
+    <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
-    
+
     <div class="container">
 
         <div class="step-body" id="myStep">
@@ -36,7 +36,57 @@
             </div>
             <div class="step-content">
                 <div class="step-list">
-
+                    <form class="cd-form floating-labels">
+                        <fieldset>
+                            <legend>个人信息</legend>
+                            <div class="icon">
+                                <label class="cd-label" for="cd-name">手机号码</label>
+                                <input class="user" type="text" name="cd-name" id="cd-name" required>
+                            </div>
+                            <div class="icon">
+                                <label for="" class="cd-label">姓名</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <h4>性别</h4>
+                                <ul class="cd-form-list">
+                                    <li>
+                                        <input type="radio" name="radio-button" id="cd-radio-1" checked="">
+                                        <label for="cd-radio-1">男</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-button" id="cd-radio-2">
+                                        <label for="cd-radio-2">女</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                         <fieldset>
+                            <legend>爱车信息</legend>
+                            <div class="icon">
+                                <label class="cd-label" for="cd-name">汽车品牌</label>
+                                <select name="" class="carBrand"></select>
+                                <select name="" class="car"></select>
+                            </div>
+                            <div class="icon">
+                                <label for="" class="cd-label">姓名</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <h4>性别</h4>
+                                <ul class="cd-form-list">
+                                    <li>
+                                        <input type="radio" name="radio-button" id="cd-radio-1" checked="">
+                                        <label for="cd-radio-1">男</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="radio-button" id="cd-radio-2">
+                                        <label for="cd-radio-2">女</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
                 <div class="step-list">
 
