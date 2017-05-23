@@ -1,3 +1,7 @@
+/**
+ * @description 所有模块的配置文件
+ * 
+ */
 requirejs.config({
     paths: {
         'jQuery': 'lib/jQuery',

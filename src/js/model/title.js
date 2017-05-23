@@ -1,10 +1,10 @@
+/**
+ * @module {title} title
+ * @requires jQuery
+ */
 define(function (require) {
     var $ = require('jQuery');
-    /**
-     * 
-     * 
-     * @param {object} opt 
-     */
+   
     var def = {
         text: '',
         isBack: false,

@@ -1,3 +1,7 @@
+/**
+ * @description 首页的入口文件
+ * @requires jQuery,model/title,model/api
+ */
 require(['jQuery',
 'model/title',
 'model/api',
@@ -6,10 +10,18 @@ require(['jQuery',
 'model/dialog'
 ], function($, title, api, tem,until,dialog){
 
+
+	/**
+	 * @description 定制一个事件流
+	 */
 	var init=$.Callbacks();
 	init.add(defineTitle);
 	init.add(orderPage)
-	//检测登录状态
+	
+
+	/**
+	 * @description 主要执行部分，在用户状态正确之后执行事件流
+	 */
 	api.userGet()
 	   .then(function(data){
 	   		console.log(data);
@@ -45,7 +57,11 @@ require(['jQuery',
 			}
 	   })
 
-	//定义头部信息
+	/**
+	 * 
+	 * @description 公共头部信息  
+	 * @param {String} titleName 标题 
+	 */
 	function defineTitle(titleName){
 		title({
 			title : titleName,
@@ -53,7 +69,11 @@ require(['jQuery',
 			$('.index-box').before(title);
 		});
 	}
-	//获取最近的预约
+	
+	/**
+	 * 
+	 *@description 初始化最近预约 
+	 */
 	function orderPage(){
 		api.orderPage().then(function(data){
 			return tem('init', data.dataLst[0]);
